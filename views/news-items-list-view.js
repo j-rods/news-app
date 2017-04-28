@@ -1,16 +1,17 @@
 (function(exports) {
 
-  function HeadlineView(headlines) {
-    this.headlines = headlines;
+  function NewsListView(newsList) {
+    this.newsList = newsList;
   }
 
-   HeadlineView.prototype.viewHeadlines = function() {
+   NewsListView.prototype.viewHeadlines = function() {
     var headlineText = [];
-    for (i = 0; i < this.headlines.length; i++){
-      headlineText.push(this.headlines[i])
+    for (i = 0; i < this.newsList.length; i++){
+      this.newsList[i].getHeadline();
+      headlineText.push(this.newsList[i].showHeadline());
     }
     return '<ul><li><div>' + headlineText.join('</div></li><li><div>') + '</div></li></ul>' ;
   };
 
-  exports.HeadlineView = HeadlineView;
+  exports.NewsListView = NewsListView;
 })(this);

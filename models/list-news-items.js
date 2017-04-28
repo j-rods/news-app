@@ -4,8 +4,8 @@
     this._newsItems = [];
   }
 
-  ListNews.prototype.loadNews = function(text) {
-    this._newsItems.push(newsItem = new NewsItem(text));
+  ListNews.prototype.loadNews = function(apiData) {
+    this._newsItems.push(newsItem = new NewsItem(apiData));
   }
 
 

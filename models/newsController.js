@@ -1,32 +1,17 @@
 (function(exports) {
 
-  function NewsController() {
-    this.headlines = [];
+  function NewsController(newsList) {
+    // this.headlines = [];
     this.url = 'https://content.guardianapis.com/technology';
     this.apiKey = '?api-key=404e88ff-db6b-4738-8e64-5581b3fdc007';
     this.apiData;
-    this.apiCall();
+    this.newsList = newsList;
+    // this.apiCall();
 
-  }
-
-  NewsController.prototype.apiCall = function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', this.url + this.apiKey, false);
-    xhr.onload = function () {
-      this.apiData = JSON.parse(xhr.response).response;
-      this.addHeadlines();
-    }.bind(this);
-    xhr.send();
-  }
-
-  NewsController.prototype.addHeadLines = function() {
-    for (i = 1; i < this.apiData.results.length; i++) {
-      this.headlines.push(this.apiData.results[i].webTitle);
-    }
   }
 
   NewsController.prototype.listHeadlines = function() {
-    var headlineView = new HeadlineView(this.headlines);
+    var headlineView = new NewsListView(newsList)
     return headlineView.viewHeadlines();
   }
 
@@ -37,3 +22,20 @@
 
   exports.NewsController = NewsController;
 })(this);
+
+  // NewsController.prototype.apiCall = function() {
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.open('GET', this.url + this.apiKey, false);
+  //   xhr.onload = function () {
+  //     this.apiData = JSON.parse(xhr.response).response;
+  //     this.addHeadlines();
+  //   }.bind(this);
+  //   xhr.send();
+  // }
+
+  // NewsController.prototype.addHeadLines = function() {
+  //   for (i = 1; i < this.apiData.results.length; i++) {
+  //     this.headlines.push(this.apiData.results[i].webTitle);
+  //   }
+  // }
+  // create new view
