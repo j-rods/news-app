@@ -5,3 +5,13 @@ var assert = {
     }
   }
 };
+
+var expect = {
+  toEqual: function(actual, expected) {
+    if (actual !== expected) {
+      throw new Error('Unlucky! ' + actual + ' did not equal ' + expected + '. Try again!');
+    } else {
+      console.log('Wohoo!! The test passed. You guys are awesome!');
+    }
+  }
+};
