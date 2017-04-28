@@ -3,17 +3,20 @@
   function NewsController() {
     this.headlines = [];
     this.url = 'https://content.guardianapis.com/technology';
-    this.apiKey = '&api-key=404e88ff-db6b-4738-8e64-5581b3fdc007';
+    this.apiKey = '?api-key=404e88ff-db6b-4738-8e64-5581b3fdc007';
     this.apiData;
     this.apiCall();
-    this.addHeadlines();
+
   }
 
   NewsController.prototype.apiCall = function() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', this.url + this.apiKey, false);
+    xhr.onload = function () {
+      this.apiData = JSON.parse(xhr.response).response;
+      this.addHeadlines();
+    }.bind(this);
     xhr.send();
-    this.apiData = JSON.parse(xhr.response).response;
   }
 
   NewsController.prototype.addHeadLines = function() {
