@@ -11,12 +11,12 @@
   }
 
   NewsController.prototype.listHeadlines = function() {
-    var headlineView = new NewsListView(newsList)
+    var headlineView = new NewsListView(this.newsList);console.log(headlineView.viewHeadlines());
     return headlineView.viewHeadlines();
   }
 
   NewsController.prototype.renderHeadlines = function() {
-    var el = document.getElementById('app');
+    var el = document.getElementById('app');console.log(this.listHeadlines());
     el.innerHTML = this.listHeadlines();
   }
 

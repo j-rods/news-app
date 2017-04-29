@@ -1,6 +1,12 @@
 // newsController = new NewsController();
 // newsController.renderHeadlines();
 (function(exports) {
-  exports.newsApp = new NewsController(new ListNews());
-  // exports.newsApp.renderHeadlines();
+  var list = new ListNews();
+
+
+//where does realdata come from?????
+
+  // list.loadNews(realdata)
+  exports.newsApp = new NewsController(list);
+  exports.newsApp.renderHeadlines();
 })(this);

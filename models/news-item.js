@@ -2,17 +2,18 @@
 
   function NewsItem(apiData) {
     this.apiData = apiData;
-    this._headline;
-    this._summary;
-    this._thumbnail;
+    this.headline;
+    this.summary;
+    this.thumbnail;
   }
 
   NewsItem.prototype.getHeadline = function() {
-    this._headline = this.apiData.response.content.webTitle;
+    console.log(this.apiData.response.content.webTitle);
+    return this.headline = this.apiData.response.content.webTitle;
   };
 
   NewsItem.prototype.showHeadline = function() {
-    return this._headline;
+    return this.headline;
   };
 
   NewsItem.prototype.getSummary = function() {
@@ -23,7 +24,7 @@
   };
 
   NewsItem.prototype.getThumbnail = function() {
-    this._thumbnail = this.apiData.response.content.fields.thumbnail;
+    return this._thumbnail = this.apiData.response.content.fields.thumbnail;
   };
 
   NewsItem.prototype.showThumbnail = function() {

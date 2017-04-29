@@ -1,13 +1,12 @@
 (function(exports) {
 
   function ListNews() {
-    this._newsItems = [];
+    this.newsItems = [];
   }
 
   ListNews.prototype.loadNews = function(apiData) {
-    this._newsItems.push(newsItem = new NewsItem(apiData));
+    this.newsItems.push(newsItem = new NewsItem(apiData));console.log(this.newsItems)
   }
-
 
   exports.ListNews = ListNews;
 })(this);
